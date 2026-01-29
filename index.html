@@ -3,18 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Breaking News</title>
+<title>Breaking Crime News</title>
 
 <style>
 * { box-sizing: border-box; }
 
 body {
     margin: 0;
-    background: #f2f2f2;
+    background: #e6e6e6;
     font-family: "Times New Roman", Georgia, serif;
 }
 
-/* ---------- PAGE CONTROL ---------- */
 section {
     display: none;
     min-height: 100vh;
@@ -24,78 +23,67 @@ section {
 }
 section.active { display: block; }
 
-/* ======================================================
-   PAGE 1 — ORIGINAL NEWS LAYOUT (RESTORED)
-   ====================================================== */
+/* PAGE 1 */
 .news-wrapper {
-    max-width: 900px;
+    max-width: 920px;
     margin: auto;
-    background: white;
-    padding: 40px 60px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #fafafa;
+    padding: 45px 65px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.25);
+    border-top: 6px solid #111;
 }
 
 .masthead {
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 22px;
-    border-bottom: 4px solid #000;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 1px;
+    border-bottom: 5px solid #111;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
 }
 
 .headline {
-    font-size: 36px;
-    line-height: 1.2;
+    font-size: 40px;
+    line-height: 1.15;
     margin: 20px 0;
+    font-weight: bold;
 }
 
 .subheadline {
     font-size: 20px;
-    color: #444;
-    margin-bottom: 20px;
+    color: #333;
+    margin-bottom: 22px;
 }
 
 .byline {
     font-size: 14px;
-    color: #666;
-    margin-bottom: 25px;
+    color: #555;
+    margin-bottom: 30px;
+    font-style: italic;
 }
 
 .article {
     column-count: 2;
-    column-gap: 40px;
+    column-gap: 45px;
     font-size: 18px;
-    line-height: 1.7;
-}
-
-.article img {
-    width: 100%;
-    margin: 15px 0 5px;
-    break-inside: avoid;
-}
-
-.caption {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 20px;
+    line-height: 1.85;
 }
 
 .read-more {
     display: block;
-    margin: 40px auto 0;
+    margin: 45px auto 0;
     text-align: center;
-    font-family: Arial;
-    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
     color: white;
-    padding: 14px 30px;
+    padding: 14px 32px;
     width: fit-content;
     cursor: pointer;
+    letter-spacing: 0.5px;
 }
 
-/* ======================================================
-   PAGE 2 & 3
-   ====================================================== */
+/* PAGE 2 & 3 */
 .rain {
     position: absolute;
     top: -40px;
@@ -107,16 +95,12 @@ section.active { display: block; }
     to { transform: translateY(110vh); }
 }
 
-/* ---------- PAGE 2 ---------- */
 .surprise {
     background: linear-gradient(135deg, #ff9eb8, #ffc1d6);
     text-align: center;
     color: #5a0030;
     padding: 40px 20px;
 }
-
-.surprise h1 { font-size: 38px; }
-.surprise h2 { font-size: 22px; }
 
 .prosecute-btn {
     padding: 18px 36px;
@@ -127,7 +111,6 @@ section.active { display: block; }
     border-radius: 30px;
 }
 
-/* ---------- PAGE 3 ---------- */
 .valentine {
     background: linear-gradient(135deg, #ff69b4, #ffb6c1);
     text-align: center;
@@ -137,10 +120,14 @@ section.active { display: block; }
 
 .card {
     background: rgba(255,255,255,0.25);
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 25px;
     display: inline-block;
-    max-width: 90%;
+    max-width: 95%;
+}
+
+.button-zone {
+    margin-top: 30px;
 }
 
 button {
@@ -160,18 +147,16 @@ button {
 
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(255,79,154,0.6); }
-    70% { box-shadow: 0 0 0 20px rgba(255,79,154,0); }
+    70% { box-shadow: 0 0 0 22px rgba(255,79,154,0); }
     100% { box-shadow: 0 0 0 0 rgba(255,79,154,0); }
 }
 
 .no {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.95);
     color: #5a0030;
-    position: absolute;
-    font-style: italic;
+    transition: opacity 0.3s ease;
 }
 
-/* ---------- FINAL MESSAGE ---------- */
 #finalMessage {
     display: none;
     margin-top: 25px;
@@ -179,49 +164,48 @@ button {
 }
 
 .teddy {
-    font-size: 60px;
+    font-size: 64px;
     animation: dance 1s infinite;
 }
 @keyframes dance {
-    50% { transform: rotate(10deg); }
+    50% { transform: rotate(12deg) scale(1.1); }
 }
 
-/* ---------- CASE CLOSED ---------- */
 #caseClosed {
     display: none;
     position: fixed;
-    bottom: 12px;
-    right: 12px;
-    font-size: 22px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 84px;
     color: #ff1e8a;
-    border: 3px solid #ff1e8a;
-    padding: 8px 14px;
+    border: 6px solid #ff1e8a;
+    padding: 18px 26px;
     font-weight: bold;
-    transform: rotate(-12deg);
-    animation: stamp 0.5s ease-out;
-}
-@keyframes stamp {
-    from { transform: scale(2) rotate(-12deg); opacity: 0; }
-    to { transform: scale(1) rotate(-12deg); opacity: 1; }
+    transform: rotate(-12deg) scale(0);
+    animation: stamp 0.6s ease-out forwards;
 }
 
-/* ---------- CONFETTI ---------- */
+@keyframes stamp {
+    0% { transform: scale(2.5) rotate(-12deg); opacity: 0; }
+    60% { transform: scale(0.9) rotate(-12deg); opacity: 1; }
+    100% { transform: scale(1) rotate(-12deg); }
+}
+
 .confetti {
     position: fixed;
     width: 8px;
     height: 8px;
     top: -10px;
-    animation: fall 3s linear infinite;
+    animation: fall 3s linear forwards;
 }
 @keyframes fall {
     to { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* ---------- MOBILE ---------- */
 @media (max-width: 768px) {
     .article { column-count: 1; }
     .headline { font-size: 28px; }
-    button { width: 100%; max-width: 280px; }
+    #caseClosed { font-size: 48px; }
 }
 </style>
 </head>
@@ -231,29 +215,37 @@ button {
 <!-- PAGE 1 -->
 <section id="news" class="active">
 <div class="news-wrapper">
-<div class="masthead">BBC WORLD NEWS</div>
+<div class="masthead">CRIME DESK — SRI LANKA</div>
 
-<h1 class="headline">International Authorities Intensify Search for Elusive Female Crime Figure</h1>
-<p class="subheadline">Investigators say one vital piece of evidence remains unaccounted for</p>
-<p class="byline">By Global Crime Correspondent | Updated today</p>
+<h1 class="headline">Police Probe Case of a Stolen Heart in Sri Lanka</h1>
+<p class="subheadline">
+Authorities focus on a mysterious and striking female suspect at the centre of an unusual case
+</p>
+<p class="byline">By Senior Crime Correspondent | Colombo | Updated today</p>
 
 <div class="article">
 <p>
-Law enforcement agencies across multiple jurisdictions have renewed efforts to locate a woman believed to be operating at the centre of a highly personal crime.
+Sri Lankan authorities are investigating an unconventional case involving what officials describe as
+the emotional theft of an innocent man’s heart. The incident, which took place in Colombo, has drawn
+attention due to the unusual nature of the alleged crime and the profile of the primary suspect.
 </p>
 
-<img src="https://images.unsplash.com/photo-1584697964403-bc66c26c34f3">
-<div class="caption">Authorities reviewing surveillance footage linked to the case</div>
-
 <p>
-Sources say the suspect is emotionally persuasive, highly intelligent, and leaves a lasting impression on everyone she encounters.
+According to investigators, the suspect is a woman described by multiple sources as exceptionally
+beautiful and disarmingly charming. Officials believe she may have knowingly used her allure to gain
+the trust of the victim before quietly taking something far more valuable than money or property.
 </p>
 
-<img src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab">
-<div class="caption">Investigators believe one heart remains missing</div>
+<p>
+The victim, an otherwise rational and law-abiding man, was found unharmed and cooperative. There were
+no signs of coercion, physical violence, or forced entry. Yet authorities confirm that his heart —
+in the emotional sense — is undeniably missing.
+</p>
 
 <p>
-Officials privately admit the case has taken an unexpected personal turn.
+Detectives say the victim has shown no interest in pressing charges and appears willingly affected by
+the suspect’s actions. The case has raised questions within law enforcement circles about intent,
+consent, and whether such a theft can truly be classified as a crime — or something more intimate.
 </p>
 </div>
 
@@ -275,8 +267,10 @@ Click here for your prosecution
 <div class="card">
 <h1>Will you be my valentine, my pretty daisy?</h1>
 
+<div class="button-zone">
 <button class="yes" onclick="yes()">Yes 💖</button>
-<button class="no" id="noBtn">No… but you’re adorable</button>
+<button class="no" id="noBtn">No</button>
+</div>
 
 <div id="finalMessage">
 <p><strong>
@@ -297,13 +291,12 @@ function goTo(id) {
     document.getElementById(id).classList.add('active');
 }
 
-/* YES */
 function yes() {
     document.getElementById("finalMessage").style.display = "block";
     document.getElementById("caseClosed").style.display = "block";
 
-    for (let i = 0; i < 60; i++) {
-        let c = document.createElement("div");
+    for (let i = 0; i < 70; i++) {
+        const c = document.createElement("div");
         c.className = "confetti";
         c.style.left = Math.random() * 100 + "vw";
         c.style.background = ["#fff","#ff69b4","#ffd1dc"][Math.floor(Math.random()*3)];
@@ -312,26 +305,18 @@ function yes() {
     }
 }
 
-/* NO BUTTON — FOREVER EVADING */
 const noBtn = document.getElementById("noBtn");
-const sweetTalk = [
-    "You know you want to 😌",
-    "Yes is warmer 💕",
-    "Just press Yes 🌸",
-    "Pretty Daisy, please 🌼",
-    "I’ll wait… but Yes 💖"
-];
+const states = ["No","I don’t know…","Maybe not?","I’m conflicted…","This is unfair…","Okay… I’m thinking"];
+let state = 0;
 
-function evade() {
-    noBtn.style.left = Math.random() * (window.innerWidth - 180) + "px";
-    noBtn.style.top = Math.random() * (window.innerHeight - 140) + "px";
-    noBtn.textContent = sweetTalk[Math.floor(Math.random()*sweetTalk.length)];
-}
-["mouseover","mousedown","focus","touchstart"].forEach(e =>
-    noBtn.addEventListener(e, evade)
-);
+noBtn.addEventListener("click", () => {
+    if (state < states.length - 1) {
+        state++;
+        noBtn.textContent = states[state];
+        noBtn.style.opacity = 1 - state * 0.12;
+    }
+});
 
-/* EMOJI RAIN */
 function startRain(id, emojis) {
     setInterval(() => {
         const r = document.createElement("div");
@@ -341,7 +326,7 @@ function startRain(id, emojis) {
         r.style.animationDuration = (4 + Math.random()*4) + "s";
         document.getElementById(id).appendChild(r);
         setTimeout(()=>r.remove(),8000);
-    }, 350);
+    }, 400);
 }
 startRain("surprise",["❤️","🚓"]);
 startRain("valentine",["❤️","🌼"]);
