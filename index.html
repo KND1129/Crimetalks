@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breaking News</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #f2f2f2;
+    font-family: "Times New Roman", Georgia, serif;
+}
+
+/* ---------- PAGE CONTROL ---------- */
+section {
+    display: none;
+    min-height: 100vh;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+section.active { display: block; }
+
+/* ======================================================
+   PAGE 1 — ORIGINAL NEWS LAYOUT (RESTORED)
+   ====================================================== */
+.news-wrapper {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 40px 60px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.masthead {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    border-bottom: 4px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.headline {
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.subheadline {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.byline {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.article {
+    column-count: 2;
+    column-gap: 40px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.article img {
+    width: 100%;
+    margin: 15px 0 5px;
+    break-inside: avoid;
+}
+
+.caption {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    display: block;
+    margin: 40px auto 0;
+    text-align: center;
+    font-family: Arial;
+    background: #000;
+    color: white;
+    padding: 14px 30px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+/* ======================================================
+   PAGE 2 & 3
+   ====================================================== */
+.rain {
+    position: absolute;
+    top: -40px;
+    font-size: 26px;
+    animation: rain linear infinite;
+    opacity: 0.7;
+}
+@keyframes rain {
+    to { transform: translateY(110vh); }
+}
+
+/* ---------- PAGE 2 ---------- */
+.surprise {
+    background: linear-gradient(135deg, #ff9eb8, #ffc1d6);
+    text-align: center;
+    color: #5a0030;
+    padding: 40px 20px;
+}
+
+.surprise h1 { font-size: 38px; }
+.surprise h2 { font-size: 22px; }
+
+.prosecute-btn {
+    padding: 18px 36px;
+    font-size: 18px;
+    background: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+}
+
+/* ---------- PAGE 3 ---------- */
+.valentine {
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.25);
+    padding: 40px;
+    border-radius: 25px;
+    display: inline-block;
+    max-width: 90%;
+}
+
+button {
+    padding: 16px 34px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.yes {
+    background: linear-gradient(135deg, #ff4f9a, #ff85c2);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,79,154,0.6); }
+    70% { box-shadow: 0 0 0 20px rgba(255,79,154,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,79,154,0); }
+}
+
+.no {
+    background: rgba(255,255,255,0.85);
+    color: #5a0030;
+    position: absolute;
+    font-style: italic;
+}
+
+/* ---------- FINAL MESSAGE ---------- */
+#finalMessage {
+    display: none;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+.teddy {
+    font-size: 60px;
+    animation: dance 1s infinite;
+}
+@keyframes dance {
+    50% { transform: rotate(10deg); }
+}
+
+/* ---------- CASE CLOSED ---------- */
+#caseClosed {
+    display: none;
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    font-size: 22px;
+    color: #ff1e8a;
+    border: 3px solid #ff1e8a;
+    padding: 8px 14px;
+    font-weight: bold;
+    transform: rotate(-12deg);
+    animation: stamp 0.5s ease-out;
+}
+@keyframes stamp {
+    from { transform: scale(2) rotate(-12deg); opacity: 0; }
+    to { transform: scale(1) rotate(-12deg); opacity: 1; }
+}
+
+/* ---------- CONFETTI ---------- */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    animation: fall 3s linear infinite;
+}
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+    .article { column-count: 1; }
+    .headline { font-size: 28px; }
+    button { width: 100%; max-width: 280px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section id="news" class="active">
+<div class="news-wrapper">
+<div class="masthead">BBC WORLD NEWS</div>
+
+<h1 class="headline">International Authorities Intensify Search for Elusive Female Crime Figure</h1>
+<p class="subheadline">Investigators say one vital piece of evidence remains unaccounted for</p>
+<p class="byline">By Global Crime Correspondent | Updated today</p>
+
+<div class="article">
+<p>
+Law enforcement agencies across multiple jurisdictions have renewed efforts to locate a woman believed to be operating at the centre of a highly personal crime.
+</p>
+
+<img src="https://images.unsplash.com/photo-1584697964403-bc66c26c34f3">
+<div class="caption">Authorities reviewing surveillance footage linked to the case</div>
+
+<p>
+Sources say the suspect is emotionally persuasive, highly intelligent, and leaves a lasting impression on everyone she encounters.
+</p>
+
+<img src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab">
+<div class="caption">Investigators believe one heart remains missing</div>
+
+<p>
+Officials privately admit the case has taken an unexpected personal turn.
+</p>
+</div>
+
+<div class="read-more" onclick="goTo('surprise')">Read the full case here</div>
+</div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="surprise" class="surprise">
+<h1>Psych! You are the suspect ❤️🚓</h1>
+<h2>You stole my heart.</h2>
+<button class="prosecute-btn" onclick="goTo('valentine')">
+Click here for your prosecution
+</button>
+</section>
+
+<!-- PAGE 3 -->
+<section id="valentine" class="valentine">
+<div class="card">
+<h1>Will you be my valentine, my pretty daisy?</h1>
+
+<button class="yes" onclick="yes()">Yes 💖</button>
+<button class="no" id="noBtn">No… but you’re adorable</button>
+
+<div id="finalMessage">
+<p><strong>
+Woohoo !!! I knew it 💖<br>
+I love you beyond comprehension my love.<br>
+Always & Forever !!!
+</strong></p>
+<div class="teddy">🧸</div>
+</div>
+</div>
+</section>
+
+<div id="caseClosed">CASE CLOSED</div>
+
+<script>
+function goTo(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+/* YES */
+function yes() {
+    document.getElementById("finalMessage").style.display = "block";
+    document.getElementById("caseClosed").style.display = "block";
+
+    for (let i = 0; i < 60; i++) {
+        let c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.background = ["#fff","#ff69b4","#ffd1dc"][Math.floor(Math.random()*3)];
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),3000);
+    }
+}
+
+/* NO BUTTON — FOREVER EVADING */
+const noBtn = document.getElementById("noBtn");
+const sweetTalk = [
+    "You know you want to 😌",
+    "Yes is warmer 💕",
+    "Just press Yes 🌸",
+    "Pretty Daisy, please 🌼",
+    "I’ll wait… but Yes 💖"
+];
+
+function evade() {
+    noBtn.style.left = Math.random() * (window.innerWidth - 180) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 140) + "px";
+    noBtn.textContent = sweetTalk[Math.floor(Math.random()*sweetTalk.length)];
+}
+["mouseover","mousedown","focus","touchstart"].forEach(e =>
+    noBtn.addEventListener(e, evade)
+);
+
+/* EMOJI RAIN */
+function startRain(id, emojis) {
+    setInterval(() => {
+        const r = document.createElement("div");
+        r.className = "rain";
+        r.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        r.style.left = Math.random()*100 + "vw";
+        r.style.animationDuration = (4 + Math.random()*4) + "s";
+        document.getElementById(id).appendChild(r);
+        setTimeout(()=>r.remove(),8000);
+    }, 350);
+}
+startRain("surprise",["❤️","🚓"]);
+startRain("valentine",["❤️","🌼"]);
+</script>
+
+</body>
+</html>
